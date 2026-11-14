@@ -1,3 +1,6 @@
+// A hollow elbow
+// The smallest useful model: a hollow 90° elbow from three waypoints.
+
 // 01_elbow — the worked example from docs/reference/ir.md.
 //
 // A 90-degree hollow elbow: three spine segments, one polyhedron, no CSG.

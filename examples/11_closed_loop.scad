@@ -1,3 +1,6 @@
+// A closed loop
+// A closed path. Its bore is a sealed cavity.
+
 // 11_closed_loop — a closed path.
 //
 // The closed machinery has existed since Phase 1 and was never reachable: the

@@ -1,3 +1,6 @@
+// A helix
+// A parametric coil with `ut_curve`, with exact tangents from `dfdt`.
+
 // 04_helix — an arbitrary parametric centreline.
 //
 // The only frontend that expresses helices, coils and serpentines. It lowers to

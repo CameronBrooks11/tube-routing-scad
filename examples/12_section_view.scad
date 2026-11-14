@@ -1,3 +1,8 @@
+// A section view
+// A twisted square-bore tube cut open with `ut_cutaway`, so the roll is visible on the cut face.
+// Known issue (uniTube#33): the twist necks the tube on straight legs, to an outer radius of
+// 8.56 mm against a nominal 9.
+
 // 12_section_view — how to LOOK at a hollow part.
 //
 // Two questions come up on every model this library makes, and neither is

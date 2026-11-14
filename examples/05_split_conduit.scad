@@ -1,3 +1,6 @@
+// A split conduit
+// A C-section whose gap faces up along two bends: a split profile plus `frame = "fixed"`.
+
 // 05_split_conduit — replaces reference/axford/half_curvedPipe.scad.
 //
 // A lengthwise-split conduit over two bends in DIFFERENT planes. The seam must

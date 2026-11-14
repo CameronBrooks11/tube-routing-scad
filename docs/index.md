@@ -38,7 +38,7 @@ General sweep libraries move a solid outline along a curve. A tube needs more:
 |---|---|
 | [Getting started](getting-started.md) | Install, a first tube, looking inside. |
 | [Usage](usage/index.md) | Paths, profiles, frames, networks. |
-| [Examples](examples/index.md) | Twelve runnable models. |
+| [Examples](../examples/) | Twelve runnable models. |
 | [Reference](reference/index.md) | Every function, and every error code. |
 | [Developer](developer/index.md) | Verification, design decisions, history. |
 

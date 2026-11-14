@@ -117,7 +117,7 @@ do not stop the render. Every code is listed in
 | [`usage/profiles.md`](usage/profiles.md) | round, split and arbitrary sections |
 | [`usage/frames.md`](usage/frames.md) | which way the section faces, and twist |
 | [`usage/networks.md`](usage/networks.md) | junctions, lumen groups, ports |
-| [`examples/`](examples/index.md) | twelve runnable models |
+| [`examples/`](../examples/) | twelve runnable models |
 | [`reference/`](reference/path.md) | every function and module |
 
 [#38]: https://github.com/CameronBrooks11/uniTube/issues/38

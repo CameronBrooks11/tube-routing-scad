@@ -1,3 +1,6 @@
+// A turtle route
+// A bender program. `roll` puts later bends in a different plane.
+
 // 03_turtle_route — a bender program.
 //
 // This is the frontend that PROVES the IR (ADR 0002). It is shaped nothing like

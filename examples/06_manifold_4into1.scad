@@ -1,3 +1,6 @@
+// A four-into-one manifold
+// Four inlets converging on one outlet at a single declared joint.
+
 // 06_manifold_4into1 — THE ACCEPTANCE TEST.
 //
 // Four inlets converging into one outlet. This is the driving application the

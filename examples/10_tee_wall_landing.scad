@@ -1,3 +1,6 @@
+// A tee landing on a wall
+// A branch drawn from the trunk's outer wall, joined mid-run.
+
 // 10_tee_wall_landing — the junction case that breaks the naive construction.
 //
 // The branch starts on the trunk's outer WALL, not on its axis. That is how
