@@ -1,3 +1,6 @@
+// Port frames
+// Port frames drawn as arrows: outward direction in red, roll reference in blue.
+
 // 07_ports_debug — the termination seam, made visible.
 //
 // A port carries a full FRAME, not a position and a diameter. Red is the

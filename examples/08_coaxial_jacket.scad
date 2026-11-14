@@ -1,3 +1,6 @@
+// A coaxial jacket
+// A tube inside a tube, kept apart by lumen groups.
+
 // 08_coaxial_jacket — the LUMEN GROUP regression.
 //
 // A tube inside a tube: a Bowden liner in a conduit, a double-wall flue, a

@@ -1,3 +1,6 @@
+// A square bore
+// An arbitrary section: a square bore in a round tube, sampled by angle.
+
 // 09_square_bore — an arbitrary hollow section, with no special case anywhere in
 // the backend. A round shell over a square lumen.
 //

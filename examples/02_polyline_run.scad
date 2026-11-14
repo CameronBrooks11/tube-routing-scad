@@ -1,3 +1,6 @@
+// A polyline run
+// A long 3D run with a different fillet radius at each of six bends.
+
 // 02_polyline_run — the legacy demo path, ported.
 //
 // These are the exact waypoints and radii from reference/axford/curvedPipe.scad's
