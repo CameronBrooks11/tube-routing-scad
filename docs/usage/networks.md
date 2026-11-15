@@ -196,8 +196,8 @@ open, put a keep-out region down it; `checks/` does this for three examples
 with [partspec](https://github.com/CameronBrooks11/partspec). See
 [`developer/verification.md`](../developer/verification.md).
 
-[#19]: https://github.com/CameronBrooks11/uniTube/issues/19
-[#21]: https://github.com/CameronBrooks11/uniTube/issues/21
-[#34]: https://github.com/CameronBrooks11/uniTube/issues/34
-[#35]: https://github.com/CameronBrooks11/uniTube/issues/35
-[#36]: https://github.com/CameronBrooks11/uniTube/issues/36
+[#19]: https://github.com/CameronBrooks11/tube-routing-scad/issues/19
+[#21]: https://github.com/CameronBrooks11/tube-routing-scad/issues/21
+[#34]: https://github.com/CameronBrooks11/tube-routing-scad/issues/34
+[#35]: https://github.com/CameronBrooks11/tube-routing-scad/issues/35
+[#36]: https://github.com/CameronBrooks11/tube-routing-scad/issues/36

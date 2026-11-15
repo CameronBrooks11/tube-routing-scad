@@ -10,7 +10,7 @@ and assembled into branching networks whose bores stay open.
 > Four frontends compile to one canonical spine, sweep as a single polyhedron,
 > and assemble into branching hollow networks whose bores stay open. See
 > [`docs/`](docs/) for the architecture and the decisions, and
-> [issues](https://github.com/CameronBrooks11/uniTube/issues) for what is next.
+> [issues](https://github.com/CameronBrooks11/tube-routing-scad/issues) for what is next.
 >
 > **`0.x` on purpose.** The geometry is verified, but the API has not yet been
 > used by anything outside this repository, and the first real consumer usually
@@ -36,7 +36,7 @@ parts that are specific to tubes:
 ## What it looks like
 
 ```scad
-use <uniTube/src/uniTube.scad>;
+use <tube-routing-scad/src/uniTube.scad>;
 
 // waypoints and fillet radii
 ut_tube(ut_polyline([[0,0,0], [50,0,0], [50,50,0]], r = 15),
@@ -61,7 +61,7 @@ invisible on a round tube. `examples/12_section_view.scad`.
 ## Requirements
 
 OpenSCAD 2021.01, the version it is tested on
-([#38](https://github.com/CameronBrooks11/uniTube/issues/38)). **Nothing else** — uniTube has no dependencies and a
+([#38](https://github.com/CameronBrooks11/tube-routing-scad/issues/38)). **Nothing else** — uniTube has no dependencies and a
 fresh clone renders immediately.
 
 ## Layout

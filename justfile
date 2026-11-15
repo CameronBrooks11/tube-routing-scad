@@ -28,7 +28,7 @@ setup:
     echo
     echo "  uniTube has no dependencies. To use it from your own models, either"
     echo "  use <$(pwd)/src/uniTube.scad>, or symlink this repo into your"
-    echo "  OpenSCAD library path (~/.local/share/OpenSCAD/libraries/uniTube)."
+    echo "  OpenSCAD library path (~/.local/share/OpenSCAD/libraries/tube-routing-scad)."
     exit $ok
 
 # Format all first-party .scad sources in place. reference/ is never touched.

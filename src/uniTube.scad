@@ -1,7 +1,7 @@
 // uniTube — The Universal Tube Library for OpenSCAD
 //
 // The only public entry point:
-//     use <uniTube/src/uniTube.scad>;
+//     use <tube-routing-scad/src/uniTube.scad>;
 //
 // NOTE ON `include` vs `use`, verified on OpenSCAD 2021.01:
 //   * `use` does NOT transitively re-export. A consumer doing `use <A>` where A

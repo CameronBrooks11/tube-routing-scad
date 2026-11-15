@@ -126,5 +126,5 @@ bore, and `ut_prof_reach` for anything that must clear the outside.
 The reasoning behind the two-loop representation of a split section is in
 ADR 0007.
 
-[#20]: https://github.com/CameronBrooks11/uniTube/issues/20
-[#22]: https://github.com/CameronBrooks11/uniTube/issues/22
+[#20]: https://github.com/CameronBrooks11/tube-routing-scad/issues/20
+[#22]: https://github.com/CameronBrooks11/tube-routing-scad/issues/22

@@ -205,6 +205,6 @@ a descending range, so `[0:-1]` is `[-1, 0]`, not empty.
 
 More frontends are tracked in [#23].
 
-[#17]: https://github.com/CameronBrooks11/uniTube/issues/17
-[#23]: https://github.com/CameronBrooks11/uniTube/issues/23
-[#36]: https://github.com/CameronBrooks11/uniTube/issues/36
+[#17]: https://github.com/CameronBrooks11/tube-routing-scad/issues/17
+[#23]: https://github.com/CameronBrooks11/tube-routing-scad/issues/23
+[#36]: https://github.com/CameronBrooks11/tube-routing-scad/issues/36

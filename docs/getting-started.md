@@ -18,16 +18,16 @@ OpenSCAD **2021.01**. uniTube has no other dependencies.
 Clone or download the repository, then do one of these:
 
 - **Put it in your OpenSCAD library folder.** In OpenSCAD, *File → Show Library
-  Folder* opens it. Place the `uniTube` folder there (a symlink works) and write:
+  Folder* opens it. Place the `tube-routing-scad` folder there (a symlink works) and write:
 
   ```scad
-  use <uniTube/src/uniTube.scad>;
+  use <tube-routing-scad/src/uniTube.scad>;
   ```
 
 - **Or point at it directly:**
 
   ```scad
-  use </path/to/uniTube/src/uniTube.scad>;
+  use </path/to/tube-routing-scad/src/uniTube.scad>;
   ```
 
 `src/uniTube.scad` is the only file you import. Importing it draws nothing.
@@ -37,7 +37,7 @@ Clone or download the repository, then do one of these:
 A tube is a **path** swept with a **profile**:
 
 ```scad
-use <uniTube/src/uniTube.scad>;
+use <tube-routing-scad/src/uniTube.scad>;
 
 $fa = 6;
 $fs = 0.5;
@@ -120,4 +120,4 @@ do not stop the render. Every code is listed in
 | [`examples/`](../examples/) | twelve runnable models |
 | [`reference/`](reference/path.md) | every function and module |
 
-[#38]: https://github.com/CameronBrooks11/uniTube/issues/38
+[#38]: https://github.com/CameronBrooks11/tube-routing-scad/issues/38
