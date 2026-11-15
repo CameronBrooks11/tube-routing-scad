@@ -134,6 +134,6 @@ Every angle in the frame code is computed as `atan2(norm(cross(a,b)), a*b)`,
 never `acos`: `acos(1.0000001)` is `nan` on OpenSCAD 2021.01, and near-collinear
 waypoints are the most common input there is.
 
-[#33]: https://github.com/CameronBrooks11/uniTube/issues/33
-[#34]: https://github.com/CameronBrooks11/uniTube/issues/34
-[#35]: https://github.com/CameronBrooks11/uniTube/issues/35
+[#33]: https://github.com/CameronBrooks11/tube-routing-scad/issues/33
+[#34]: https://github.com/CameronBrooks11/tube-routing-scad/issues/34
+[#35]: https://github.com/CameronBrooks11/tube-routing-scad/issues/35

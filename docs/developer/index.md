@@ -20,7 +20,7 @@ exists, it was validated by reintroducing the bug it catches; `tests/guards/`
 holds those reintroductions.
 
 Outstanding and deliberately deferred work is tracked in
-[GitHub issues](https://github.com/CameronBrooks11/uniTube/issues), not in a
+[GitHub issues](https://github.com/CameronBrooks11/tube-routing-scad/issues), not in a
 file.
 
 ## Working on the library
@@ -34,6 +34,6 @@ just verify     # slow: forced-CGAL manifoldness and the partspec contracts
 ```
 
 The project rules are in
-[`AGENTS.md`](https://github.com/CameronBrooks11/uniTube/blob/main/AGENTS.md).
+[`AGENTS.md`](https://github.com/CameronBrooks11/tube-routing-scad/blob/main/AGENTS.md).
 Licence and provenance are in
-[`NOTICE`](https://github.com/CameronBrooks11/uniTube/blob/main/NOTICE).
+[`NOTICE`](https://github.com/CameronBrooks11/tube-routing-scad/blob/main/NOTICE).

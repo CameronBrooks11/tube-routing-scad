@@ -125,7 +125,7 @@ the seed, the nearest multiple of `360/symmetry` is absorbed, and the remainder 
 distributed by arclength. Measured on a four-arc torus: residual **0°**.
 `symmetry` comes from the options, not from the profile, and `twist` is not
 required to close
-([#34](https://github.com/CameronBrooks11/uniTube/issues/34)).
+([#34](https://github.com/CameronBrooks11/tube-routing-scad/issues/34)).
 
 **A closed tube's lumen is a sealed internal cavity.** CGAL reports `Volumes: 3`
 — outside, material, trapped bore. That is correct topology, not a defect, and it

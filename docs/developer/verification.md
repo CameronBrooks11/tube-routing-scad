@@ -15,7 +15,7 @@ that still render. This is the answer this project settled on.
 Re-verified on 2021.01, because the received wisdom is contradictory and mostly
 wrong. Every gate in this repository is shaped by this table.
 
-> **Known issue ([#38](https://github.com/CameronBrooks11/uniTube/issues/38)).**
+> **Known issue ([#38](https://github.com/CameronBrooks11/tube-routing-scad/issues/38)).**
 > Everything here is measured on 2021.01, the version CI pins. On 2026.10.15
 > `tests/t_scoping.scad` fails and `just cgal` cannot pass, because that version
 > prints no `Simple: yes` line.
@@ -56,7 +56,7 @@ and neither is visible from a green build:
    that: it repairs an inside-out polyhedron in any boolean and says nothing.
 5. **Preview correctness** — `just preview`. Renders each example through
    **OpenCSG**, not CGAL, and fails if a closed part shows back faces. See below.
-   Known issue ([#37](https://github.com/CameronBrooks11/uniTube/issues/37)):
+   Known issue ([#37](https://github.com/CameronBrooks11/tube-routing-scad/issues/37)):
    an example is reported ok when the pixel checker prints nothing.
 6. **Declared engineering intent** — `checks/`, verified with
    [partspec](https://github.com/CameronBrooks11/partspec). A dev-time oracle;
@@ -134,7 +134,7 @@ Three things about that colour, each measured on a cut tube:
   the same as a clean one. `examples/12_section_view` passed with no section
   drawn. Nothing yet asserts that a cutaway cuts in preview.
 
-[#38]: https://github.com/CameronBrooks11/uniTube/issues/38
+[#38]: https://github.com/CameronBrooks11/tube-routing-scad/issues/38
 
 ## `Simple: yes` is necessary and nowhere near sufficient
 

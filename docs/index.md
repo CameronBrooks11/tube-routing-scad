@@ -12,7 +12,7 @@ cross-section, and join several into branching networks whose bores stay open.
 ![Four inlet tubes curving into one outlet](assets/img/examples/06_manifold_4into1.png)
 
 ```scad
-use <uniTube/src/uniTube.scad>;
+use <tube-routing-scad/src/uniTube.scad>;
 
 // waypoints and fillet radii
 ut_tube(ut_polyline([[0,0,0], [50,0,0], [50,50,0]], r = 15),
@@ -20,7 +20,7 @@ ut_tube(ut_polyline([[0,0,0], [50,0,0], [50,50,0]], r = 15),
 ```
 
 It has no dependencies and needs OpenSCAD 2021.01, the version it is tested on
-([#38](https://github.com/CameronBrooks11/uniTube/issues/38)).
+([#38](https://github.com/CameronBrooks11/tube-routing-scad/issues/38)).
 
 ## What it is for
 
@@ -49,4 +49,4 @@ anything outside the repository, so names and argument shapes may still move.
 
 Not shipped, deliberately: terminations (a separate library), junction fillets,
 profile variation along a path, and multi-lumen sections. Open work is in
-[GitHub issues](https://github.com/CameronBrooks11/uniTube/issues).
+[GitHub issues](https://github.com/CameronBrooks11/tube-routing-scad/issues).

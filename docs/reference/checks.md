@@ -90,8 +90,8 @@ Some wrong input is not yet refused, or is refused with a misleading message:
 - `twist` over a straight leg, and on a closed path, produces wrong geometry
   without a message ([#33], [#34]).
 
-[#30]: https://github.com/CameronBrooks11/uniTube/issues/30
-[#33]: https://github.com/CameronBrooks11/uniTube/issues/33
-[#34]: https://github.com/CameronBrooks11/uniTube/issues/34
-[#35]: https://github.com/CameronBrooks11/uniTube/issues/35
-[#36]: https://github.com/CameronBrooks11/uniTube/issues/36
+[#30]: https://github.com/CameronBrooks11/tube-routing-scad/issues/30
+[#33]: https://github.com/CameronBrooks11/tube-routing-scad/issues/33
+[#34]: https://github.com/CameronBrooks11/tube-routing-scad/issues/34
+[#35]: https://github.com/CameronBrooks11/tube-routing-scad/issues/35
+[#36]: https://github.com/CameronBrooks11/tube-routing-scad/issues/36
