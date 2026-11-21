@@ -16,9 +16,7 @@
 // This is also literally how a CNC tube bender is programmed: Length, Rotation,
 // Angle.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

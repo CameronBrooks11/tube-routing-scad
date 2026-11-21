@@ -8,9 +8,7 @@
 // frontend that was not covered.
 //
 // The discrete estimate recovers 11.014 against an analytic 11.0132.
-// clang-format off
 use <../../src/uniTube.scad>;
-// clang-format on
 $fa = 8;
 $fs = 1;
 R = 10;

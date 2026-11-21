@@ -6,9 +6,7 @@
 // been tested at all -- and a resolution-dependent hole through a junction sat
 // there rendering `Simple: yes`.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 // A representative hollow tee, built fresh at each resolution because the
 // profiles' point counts depend on it.

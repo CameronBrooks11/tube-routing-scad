@@ -1,9 +1,7 @@
 // ut_math — the handful of functions that replace 1035 lines of vendored
 // maths.scad and vector.scad. See docs/developer/history.md §5.
 
-// clang-format off
 use <ut_core.scad>;
-// clang-format on
 
 function ut_unit(v) = v / norm(v);
 

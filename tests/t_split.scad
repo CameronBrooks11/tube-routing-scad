@@ -2,9 +2,7 @@
 // the seam is a FRAME POLICY. Between them they replace ~300 lines of
 // reference/axford/half_curvedPipe.scad and its hard nine-segment ceiling.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

@@ -1,9 +1,7 @@
 // t_frame — roll policy. The requirement half_curvedPipe.scad discovered
 // (docs/developer/history.md §2), now expressed as two policy strings.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 // A path with two bends in DIFFERENT planes -- the case where a naively derived
 // frame spirals and a split seam would wander around the tube.

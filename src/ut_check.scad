@@ -9,12 +9,10 @@
 // with a plausible positive volume and zero warnings. No amount of rendering
 // finds that; only arithmetic on the spine does.
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
 use <ut_path.scad>;
 use <ut_profile.scad>;
-// clang-format on
 
 // The outer extremity of the profile, measured from the centreline. For a round
 // section that is od/2; for an arbitrary one it is the farthest vertex.

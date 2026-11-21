@@ -23,9 +23,7 @@
 // absorbed against the profile's rotational symmetry, and distributed by
 // arclength, so the seam meets itself exactly. Measured residual: 0 degrees.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

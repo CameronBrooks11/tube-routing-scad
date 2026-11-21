@@ -1,9 +1,7 @@
 // t_mesh — mesh properties WITHOUT rendering. This is the tier that catches the
 // silent-material-loss class; CGAL's "Simple: yes" does not (docs/developer/verification.md).
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

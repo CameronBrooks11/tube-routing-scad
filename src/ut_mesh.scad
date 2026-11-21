@@ -8,14 +8,12 @@
 // TRIANGLE, so the topology is ours rather than something OpenSCAD guesses at
 // ("PolySet has nonplanar faces. Attempting alternate construction").
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
 use <ut_path.scad>;
 use <ut_profile.scad>;
 use <ut_port.scad>;
 use <ut_check.scad>;
-// clang-format on
 
 // The region a `part` selects. --hardwarnings catches an unknown named ARGUMENT
 // (the torusSlice bug class) but NOT an unknown VALUE, so an unguarded else here

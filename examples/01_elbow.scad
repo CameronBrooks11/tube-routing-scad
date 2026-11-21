@@ -9,9 +9,7 @@
 // too, but it PERTURBS THE GEOMETRY -- at the origin of a manifold that is
 // inside the material.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

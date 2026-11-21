@@ -1,8 +1,6 @@
 // t_curve — the parametric frontend, and the dedupe that keeps it finite.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 // ============================================ a helix
 R = 60;

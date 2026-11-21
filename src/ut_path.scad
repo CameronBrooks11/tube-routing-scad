@@ -9,10 +9,8 @@
 // Exactly one function — ut_stations() — lowers spine to stations. The backend
 // consumes stations and never infers orientation.
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
-// clang-format on
 
 // =============================================================== constructors
 

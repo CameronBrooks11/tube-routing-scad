@@ -25,9 +25,7 @@
 // while the mesh stayed manifold and every gate passed. The final leg now rises
 // at 37 degrees, and ut_stations() refuses the degenerate ask outright.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

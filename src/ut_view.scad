@@ -9,10 +9,8 @@
 // rotationally symmetric -- a split, a square bore, a keyway -- the orientation
 // of the cut face IS the roll. Nothing else is needed to see it.
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
-// clang-format on
 
 // Cut the half-space on the +normal side away from whatever is passed in.
 //

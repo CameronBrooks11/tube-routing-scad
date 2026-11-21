@@ -9,10 +9,8 @@
 // src/ sets no $fa, $fs or $fn anywhere, which is exactly why the library picks
 // up the consumer's resolution -- the behaviour asserted below is load-bearing.
 
-// clang-format off
 use <fixtures/scope_sets.scad>;
 use <fixtures/scope_silent.scad>;
-// clang-format on
 
 $fa = 30;
 $fs = 5;

@@ -18,10 +18,8 @@
 // would no longer be a directly usable positive solid. The mesh emitter orients
 // the inner skin's faces instead -- one line, in one place. See ADR 0006.
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
-// clang-format on
 
 // =============================================================== constructors
 

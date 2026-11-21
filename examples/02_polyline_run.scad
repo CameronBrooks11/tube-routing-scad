@@ -12,9 +12,7 @@
 // exactly tangent -- the straight between them is zero-length and is omitted
 // rather than emitted as a degenerate segment.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;

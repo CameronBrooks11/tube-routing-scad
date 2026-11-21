@@ -16,9 +16,7 @@
 // once per group. Declaring the group is the user's job, and ut_check_net's
 // NET-5 refuses the assembly if two nesting runs share one.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;

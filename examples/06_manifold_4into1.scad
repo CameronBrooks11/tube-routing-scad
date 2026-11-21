@@ -17,9 +17,7 @@
 // `Simple: yes` does NOT prove the lumens are open; the sealed version reports
 // exactly the same. checks/manifold/ asserts patency independently.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;

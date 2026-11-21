@@ -2,9 +2,7 @@
 // depends on $fa/$fs. This is the tier that catches what "Simple: yes" cannot,
 // and every silent failure this design was reviewed against passed "Simple: yes".
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 12;
 $fs = 2;

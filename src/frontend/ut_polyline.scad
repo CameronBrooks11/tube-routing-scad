@@ -5,11 +5,9 @@
 // the three guards it never had. Those guards are the whole point: each of the
 // three inputs below used to produce WRONG GEOMETRY SILENTLY.
 
-// clang-format off
 use <../ut_core.scad>;
 use <../ut_math.scad>;
 use <../ut_path.scad>;
-// clang-format on
 
 // r may be a scalar (applied to interior vertices only), a list of len(pts)
 // (indexed by vertex, ends ignored), or a list of len(pts)-2 (interior only --

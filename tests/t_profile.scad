@@ -1,8 +1,6 @@
 // t_profile — the cross-section and the lumen. Pure data.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 // --- od / id / wall are three spellings of one profile -----------------------
 a = ut_round(od = 12, id = 8);

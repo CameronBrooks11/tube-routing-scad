@@ -6,9 +6,7 @@
 // lines -- so a green `just check` is NOT evidence that no uniTube warning was
 // emitted. `just warnings` is what checks these, by asserting each one appears.
 
-// clang-format off
 use <../../src/uniTube.scad>;
-// clang-format on
 
 $fa = 12;
 $fs = 2;

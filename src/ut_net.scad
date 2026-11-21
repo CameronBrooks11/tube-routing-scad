@@ -34,7 +34,6 @@
 //   3. LUMEN GROUPS. With one global difference, a coaxial jacket's outer bore
 //      swallows the inner tube entirely.
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
 use <ut_path.scad>;
@@ -42,7 +41,6 @@ use <ut_profile.scad>;
 use <ut_mesh.scad>;
 use <ut_port.scad>;
 use <ut_check.scad>;
-// clang-format on
 
 // =============================================================== records
 

@@ -2,9 +2,7 @@
 // POINT COUNT but is sampled by perimeter, so it starts at a corner (225 deg)
 // while the shell starts at 0 deg. The cap strip then twists around the annulus
 // and self-intersects, and CGAL reports only "assertion violation".
-// clang-format off
 use <../../src/uniTube.scad>;
-// clang-format on
 N = 32;
 function sq_by_perimeter(h, n) = [for (i = [0:n - 1]) let(u = 4 * i / n, s = floor(u), f = u - s) s == 0
                                       ? [ h * (2 * f - 1), -h ]

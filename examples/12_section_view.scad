@@ -21,9 +21,7 @@
 //
 // SECTION is the toggle. Set it false and this is an ordinary solid part.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

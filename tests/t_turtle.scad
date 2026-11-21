@@ -8,9 +8,7 @@
 // It fell out cleanly. No core module changed, and neither new frontend
 // references ut_fragments, ut_ref_fallback, ut_ortho or ut_stations at all.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 // ============================================ hand-verified geometry
 // start [0,0,0], dir +X, up +Z:

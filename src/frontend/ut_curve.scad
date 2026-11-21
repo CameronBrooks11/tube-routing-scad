@@ -19,11 +19,9 @@
 // It exists and works (spikes/biarc_fitter.scad) and is deliberately not built:
 // Issue #17 has the measurements.
 
-// clang-format off
 use <../ut_core.scad>;
 use <../ut_math.scad>;
 use <../ut_path.scad>;
-// clang-format on
 
 // `f` is a function literal of one parameter. `dfdt`, when supplied, gives EXACT
 // tangents; otherwise they come from central differences.

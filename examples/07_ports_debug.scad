@@ -8,9 +8,7 @@
 // flat or bayonet lug would be aligned to. Terminations themselves are a
 // separate library (ADR 0005) -- this is the interface they attach to.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;

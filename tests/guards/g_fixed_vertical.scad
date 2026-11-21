@@ -2,9 +2,7 @@
 // world direction is undefined where the axis points along it. This is the exact
 // path examples/05 used to ship: the seam flipped 174 degrees in a single
 // 6-degree step, the mesh stayed manifold, and every gate passed.
-// clang-format off
 include <../../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

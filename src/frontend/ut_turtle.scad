@@ -18,11 +18,9 @@
 // tube. SPINE-5 (no roll in the IR) survives contact with the one frontend that
 // has an explicit roll command.
 
-// clang-format off
 use <../ut_core.scad>;
 use <../ut_math.scad>;
 use <../ut_path.scad>;
-// clang-format on
 
 //   ["feed", d]                 straight, d mm along the current heading
 //   ["bend", ang, "r", r]       bend by ang degrees at radius r, toward `up`

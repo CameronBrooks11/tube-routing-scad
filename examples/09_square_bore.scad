@@ -10,9 +10,7 @@
 // 0 degrees, twists the end-cap strip around the annulus, and CGAL reports only
 // "assertion violation". See ADR 0006 and tests/guards/g_prof_align.scad.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

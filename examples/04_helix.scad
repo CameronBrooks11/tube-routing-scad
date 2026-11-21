@@ -12,9 +12,7 @@
 // Supplying `dfdt` gives EXACT tangents at every sample instead of central
 // differences, which is worth doing whenever the derivative is known.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;

@@ -1,9 +1,7 @@
 // t_check — the positive side of the analytic guards. The negative side lives in
 // tests/guards/, since an assert that fires cannot be caught from inside OpenSCAD.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 prof = ut_round(od = 12, wall = 2);
 assert(abs(ut_prof_reach(prof) - 6) < 1e-9, "a round profile reaches od/2 from the centreline");

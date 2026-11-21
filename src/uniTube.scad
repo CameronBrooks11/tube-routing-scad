@@ -13,7 +13,6 @@
 // Internal modules use `use <>` for their own dependencies; only this file
 // includes. Nothing in src/ emits geometry or echoes on import (AGENTS.md rule 3).
 
-// clang-format off
 include <ut_core.scad>;
 include <ut_math.scad>;
 include <ut_path.scad>;
@@ -26,4 +25,3 @@ include <ut_view.scad>;
 include <frontend/ut_polyline.scad>;
 include <frontend/ut_turtle.scad>;
 include <frontend/ut_curve.scad>;
-// clang-format on

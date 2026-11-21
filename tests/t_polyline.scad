@@ -2,9 +2,7 @@
 // The guards themselves ABORT, so they cannot be asserted from inside OpenSCAD:
 // they are exercised by tests/guards/ via `just guards`.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 // --- the worked elbow lowers to L, A, L --------------------------------------
 p = ut_polyline([ [ 0, 0, 0 ], [ 50, 0, 0 ], [ 50, 50, 0 ] ], r = 15);

@@ -16,9 +16,7 @@
 //     Extending only the bore leaves the shells touching tangentially -- measured
 //     `Simple: yes, Volumes: 3`, two solids sharing a circle.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;
