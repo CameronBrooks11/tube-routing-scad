@@ -270,6 +270,10 @@ render:
       echo "  {{OUT}}/render/$(basename "${f%.scad}").stl"
     done
 
+# Render the picture on the docs home page. Preview through OpenCSG, so it needs a GL context.
+images:
+    openscad -o docs/assets/img/examples/06_manifold_4into1.png --imgsize=1000,750 --viewall --autocenter examples/06_manifold_4into1.scad
+
 # Remove all build output.
 clean:
     rm -rf "{{OUT}}"
