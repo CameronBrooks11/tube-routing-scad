@@ -6,7 +6,11 @@
 // the part. Bit for bit the failure examples/08 exists to prevent, reached by
 // sliding one run 70 mm along the other.
 use <../../src/uniTube.scad>;
-ut_assemble(ut_net([
-    ut_run("jacket", ut_polyline([ [ 0, 0, 0 ], [ 200, 0, 0 ] ]), ut_round(od = 30, id = 26), group = 0),
-    ut_run("liner", ut_polyline([ [ 70, 0, 0 ], [ 130, 0, 0 ] ]), ut_round(od = 12, id = 8), group = 0),
-]));
+ut_assemble(
+    ut_net(
+        [
+            ut_run("jacket", ut_polyline([[0, 0, 0], [200, 0, 0]]), ut_round(od=30, id=26), group=0),
+            ut_run("liner", ut_polyline([[70, 0, 0], [130, 0, 0]]), ut_round(od=12, id=8), group=0),
+        ]
+    )
+);

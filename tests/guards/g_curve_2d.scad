@@ -3,4 +3,4 @@
 // SWEEP time with "atan2() parameter could not be converted", naming ut_math.
 include <../../src/uniTube.scad>;
 
-ut_tube(ut_curve(function(t)[t * 50, t *t * 20], n = 10), ut_round(od = 8, wall = 1.5));
+ut_tube(ut_curve(function(t) [t * 50, t * t * 20], n=10), ut_round(od=8, wall=1.5));

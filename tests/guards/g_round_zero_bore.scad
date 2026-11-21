@@ -3,4 +3,4 @@
 // naming the wrong cause. ut_rod() is the answer.
 include <../../src/uniTube.scad>;
 
-ut_tube(ut_polyline([ [ 0, 0, 0 ], [ 50, 0, 0 ] ]), ut_round(od = 10, id = 0));
+ut_tube(ut_polyline([[0, 0, 0], [50, 0, 0]]), ut_round(od=10, id=0));

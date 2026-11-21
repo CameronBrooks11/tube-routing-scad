@@ -4,6 +4,6 @@
 // OpenSCAD emits nothing for a non-positive extrusion height and says nothing.
 // docs/developer/history.md §3.
 use <../../src/uniTube.scad>;
-p = ut_polyline([ [ 0, 0, 0 ], [ 100, 0, 0 ], [ 100, 100, 0 ], [ 100, 100, 100 ] ], r = [ 80, 80 ]);
+p = ut_polyline([[0, 0, 0], [100, 0, 0], [100, 100, 0], [100, 100, 100]], r=[80, 80]);
 echo(len(ut_segs(p)));
 cube(0.001);

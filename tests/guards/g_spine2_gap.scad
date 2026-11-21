@@ -2,6 +2,6 @@
 // A gap here means the frontend produced a broken spine, and the failure would
 // otherwise appear far downstream as a strange mesh.
 use <../../src/uniTube.scad>;
-p = ut_spine([ ut_line([ 0, 0, 0 ], [ 40, 0, 0 ]), ut_line([ 50, 0, 0 ], [ 90, 0, 0 ]) ]);
+p = ut_spine([ut_line([0, 0, 0], [40, 0, 0]), ut_line([50, 0, 0], [90, 0, 0])]);
 echo(len(ut_segs(p)));
 cube(0.001);

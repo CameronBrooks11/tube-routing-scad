@@ -4,5 +4,5 @@
 // 6) through an r=5.5 bend aborted via ut_tube and rendered "Simple: yes,
 // Volumes: 2" via ut_assemble, with ut_check_net returning true.
 use <../../src/uniTube.scad>;
-r = ut_run("a", ut_polyline([ [ 0, 0, 0 ], [ 40, 0, 0 ], [ 40, 40, 0 ] ], r = 5.5), ut_round(od = 12, wall = 2));
+r = ut_run("a", ut_polyline([[0, 0, 0], [40, 0, 0], [40, 40, 0]], r=5.5), ut_round(od=12, wall=2));
 ut_assemble(ut_net([r]));

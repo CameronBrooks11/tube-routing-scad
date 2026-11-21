@@ -5,4 +5,4 @@
 use <../../src/uniTube.scad>;
 N = 24;
 bad = ut_profile(ut_ring(4, N), ut_ring(6, N)); // inner LARGER than outer
-ut_tube(ut_polyline([ [ 0, 0, 0 ], [ 50, 0, 0 ] ]), bad);
+ut_tube(ut_polyline([[0, 0, 0], [50, 0, 0]]), bad);

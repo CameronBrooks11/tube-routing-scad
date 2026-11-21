@@ -21,13 +21,12 @@ use <../src/uniTube.scad>;
 $fa = 8;
 $fs = 1;
 
-module part()
-{
-    trunk = ut_run("trunk", ut_polyline([ [ -50, 0, 0 ], [ 50, 0, 0 ] ]), ut_round(od = 20, wall = 2));
+module part() {
+    trunk = ut_run("trunk", ut_polyline([[-50, 0, 0], [50, 0, 0]]), ut_round(od=20, wall=2));
     // Starts at y = 10, exactly on the trunk's outer surface.
-    branch = ut_run("branch", ut_polyline([ [ 0, 10, 0 ], [ 0, 50, 0 ] ]), ut_round(od = 12, wall = 2));
+    branch = ut_run("branch", ut_polyline([[0, 10, 0], [0, 50, 0]]), ut_round(od=12, wall=2));
 
-    ut_assemble(ut_net([ trunk, branch ], [ut_joint([ [ "trunk", [ "s", 50 ] ], [ "branch", "a" ] ])]));
+    ut_assemble(ut_net([trunk, branch], [ut_joint([["trunk", ["s", 50]], ["branch", "a"]])]));
 }
 
 part();

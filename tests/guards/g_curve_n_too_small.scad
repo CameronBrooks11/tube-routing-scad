@@ -1,5 +1,5 @@
 // MUST FAIL — ut_curve needs at least two intervals to have a path at all.
 use <../../src/uniTube.scad>;
-p = ut_curve(function(t)[10 * t, 0, 0], n = 1);
+p = ut_curve(function(t) [10 * t, 0, 0], n=1);
 echo(len(ut_segs(p)));
 cube(0.001);

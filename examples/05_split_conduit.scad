@@ -30,14 +30,13 @@ use <../src/uniTube.scad>;
 $fa = 6;
 $fs = 0.5;
 
-path = ut_polyline([ [ 0, 0, 0 ], [ 60, 0, 0 ], [ 60, 40, 0 ], [ 100, 40, 30 ] ], r = 18);
-prof = ut_round(od = 16, wall = 2, split = [ -30, 30 ]);
+path = ut_polyline([[0, 0, 0], [60, 0, 0], [60, 40, 0], [100, 40, 30]], r=18);
+prof = ut_round(od=16, wall=2, split=[-30, 30]);
 
 // The example geometry, as a module so `just verify` can wrap it in a no-op
 // boolean to force CGAL. A raw polyhedron() is never validated otherwise.
-module part()
-{
-    ut_tube(path, prof, opts = [ [ "frame", "fixed" ], [ "normal", [ 0, 0, 1 ] ] ]);
+module part() {
+    ut_tube(path, prof, opts=[["frame", "fixed"], ["normal", [0, 0, 1]]]);
 }
 
 part();

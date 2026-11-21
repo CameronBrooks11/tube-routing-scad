@@ -4,7 +4,7 @@
 // profile that is not rotationally symmetric is wrong from that station on.
 include <../../src/uniTube.scad>;
 
-path = ut_polyline([ [ 0, 0, 0 ], [ 80, 0, 0 ] ]);
+path = ut_polyline([[0, 0, 0], [80, 0, 0]]);
 n = len(ut_stations(path));
-frames = [for (i = [0:n - 1])(i == floor(n / 2)) ? [ 0, 0, -1 ] : [ 0, 0, 1 ]];
-ut_tube(path, ut_round(od = 16, wall = 2, split = [ -30, 30 ]), opts = [[ "frame", frames ]]);
+frames = [for (i = [0:n - 1]) (i == floor(n / 2)) ? [0, 0, -1] : [0, 0, 1]];
+ut_tube(path, ut_round(od=16, wall=2, split=[-30, 30]), opts=[["frame", frames]]);

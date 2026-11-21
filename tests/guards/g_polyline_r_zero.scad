@@ -4,6 +4,6 @@
 // "WARNING: Invalid value (NaN) in parameter vector for cross()" from deep
 // inside ut_math, naming nothing useful.
 use <../../src/uniTube.scad>;
-p = ut_polyline([ [ 0, 0, 0 ], [ 50, 0, 0 ], [ 50, 50, 0 ] ]); // no r
+p = ut_polyline([[0, 0, 0], [50, 0, 0], [50, 50, 0]]); // no r
 echo(len(ut_segs(p)));
 cube(0.001);

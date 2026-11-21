@@ -15,17 +15,19 @@ use <../src/uniTube.scad>;
 $fa = 6;
 $fs = 0.5;
 
-function square_by_angle(h, n) = [for (k = [0:n - 1])
-        let(t = 360 * k / n, cx = cos(t), cy = sin(t), m = h / max(abs(cx), abs(cy)))[m * cx, m *cy]];
+function square_by_angle(h, n) =
+    [
+        for (k = [0:n - 1])
+        let (t = 360 * k / n, cx = cos(t), cy = sin(t), m = h / max(abs(cx), abs(cy))) [m * cx, m * cy],
+    ];
 
 N = ut_fragments(7, 360);
-prof = ut_profile(ut_ring(7, N), square_by_angle(4, N), [ [ "od", 14 ], [ "kind", "square-bore" ] ]);
-path = ut_polyline([ [ 0, 0, 0 ], [ 50, 0, 0 ], [ 50, 40, 0 ] ], r = 18);
+prof = ut_profile(ut_ring(7, N), square_by_angle(4, N), [["od", 14], ["kind", "square-bore"]]);
+path = ut_polyline([[0, 0, 0], [50, 0, 0], [50, 40, 0]], r=18);
 
 // The example geometry, as a module so `just verify` can wrap it in a no-op
 // boolean to force CGAL. A raw polyhedron() is never validated otherwise.
-module part()
-{
+module part() {
     ut_tube(path, prof);
 }
 

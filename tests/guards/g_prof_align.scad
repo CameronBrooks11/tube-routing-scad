@@ -4,11 +4,13 @@
 // and self-intersects, and CGAL reports only "assertion violation".
 use <../../src/uniTube.scad>;
 N = 32;
-function sq_by_perimeter(h, n) = [for (i = [0:n - 1]) let(u = 4 * i / n, s = floor(u), f = u - s) s == 0
-                                      ? [ h * (2 * f - 1), -h ]
-                                  : s == 1 ? [ h, h * (2 * f - 1) ]
-                                  : s == 2 ? [ h * (1 - 2 * f), h ]
-                                           : [ -h, h * (1 - 2 * f) ]];
+function sq_by_perimeter(h, n) =
+    [
+        for (i = [0:n - 1]) let (u = 4 * i / n, s = floor(u), f = u - s) s == 0 ? [h * (2 * f - 1), -h]
+        : s == 1 ? [h, h * (2 * f - 1)]
+        : s == 2 ? [h * (1 - 2 * f), h]
+        : [-h, h * (1 - 2 * f)],
+    ];
 p = ut_profile(ut_ring(6, N), sq_by_perimeter(3, N));
 echo(len(ut_prof_outer(p)));
 cube(0.001);

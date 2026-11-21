@@ -5,6 +5,6 @@
 include <../../src/uniTube.scad>;
 
 // The last leg runs straight up, so an all-UP normal list is parallel there.
-path = ut_polyline([ [ 0, 0, 0 ], [ 40, 0, 0 ], [ 40, 40, 0 ], [ 40, 40, 40 ] ], r = 12);
+path = ut_polyline([[0, 0, 0], [40, 0, 0], [40, 40, 0], [40, 40, 40]], r=12);
 n = len(ut_stations(path));
-ut_tube(path, ut_round(od = 16, wall = 2), opts = [[ "frame", [for (i = [0:n - 1])[0, 0, 1]] ]]);
+ut_tube(path, ut_round(od=16, wall=2), opts=[["frame", [for (i = [0:n - 1]) [0, 0, 1]]]]);

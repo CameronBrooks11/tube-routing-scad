@@ -21,13 +21,12 @@ use <../src/uniTube.scad>;
 $fa = 8;
 $fs = 1;
 
-module part()
-{
-    path = ut_polyline([ [ 0, 0, 0 ], [ 60, 0, 0 ], [ 60, 50, 0 ] ], r = 20);
-    jacket = ut_run("jacket", path, ut_round(od = 30, id = 26), group = 0);
-    liner = ut_run("liner", path, ut_round(od = 12, id = 8), group = 1);
+module part() {
+    path = ut_polyline([[0, 0, 0], [60, 0, 0], [60, 50, 0]], r=20);
+    jacket = ut_run("jacket", path, ut_round(od=30, id=26), group=0);
+    liner = ut_run("liner", path, ut_round(od=12, id=8), group=1);
 
-    ut_assemble(ut_net([ jacket, liner ]));
+    ut_assemble(ut_net([jacket, liner]));
 }
 
 part();

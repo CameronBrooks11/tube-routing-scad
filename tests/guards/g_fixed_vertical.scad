@@ -6,5 +6,7 @@ include <../../src/uniTube.scad>;
 
 $fa = 6;
 $fs = 0.5;
-ut_tube(ut_polyline([ [ 0, 0, 0 ], [ 60, 0, 0 ], [ 60, 40, 0 ], [ 60, 40, 40 ] ], r = 20),
-        ut_round(od = 16, wall = 2, split = [ -30, 30 ]), opts = [ [ "frame", "fixed" ], [ "normal", [ 0, 0, 1 ] ] ]);
+ut_tube(
+    ut_polyline([[0, 0, 0], [60, 0, 0], [60, 40, 0], [60, 40, 40]], r=20),
+    ut_round(od=16, wall=2, split=[-30, 30]), opts=[["frame", "fixed"], ["normal", [0, 0, 1]]]
+);

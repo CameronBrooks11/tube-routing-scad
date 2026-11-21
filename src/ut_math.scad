@@ -9,7 +9,7 @@ function ut_unit(v) = v / norm(v);
 // 3D only: cross() requires 3-vectors. For planar angles use atan2(y, x).
 // NEVER acos: acos(1.0000001) is nan on OpenSCAD 2021.01 and near-collinear
 // waypoints are the most common input there is. See AGENTS.md rule 7.
-function ut_turn(a, b) = atan2(norm(cross(a, b)), a *b);
+function ut_turn(a, b) = atan2(norm(cross(a, b)), a * b);
 
 // Rodrigues' rotation of v about unit axis k by ang degrees.
 // This is reference/axford/half_curvedPipe.scad:19, generalised. docs/developer/history.md §2.
@@ -18,19 +18,23 @@ function ut_rotv(v, ang, k) = v * cos(ang) + cross(k, v) * sin(ang) + k * (k * v
 // Project ref orthogonal to t and normalise -- the roll-reference seed.
 // Falls back from UP to BACK when the run starts parallel to ref, which is the
 // vertical-tangent NaN that has killed every previous attempt at this.
-function ut_ref_fallback(t, ref = undef) = let(r0 = is_undef(ref) ? ut_up() : ref, tu = ut_unit(t),
-                                               r = norm(cross(tu, r0)) < 1e-6
-                                                       ? (norm(cross(tu, ut_back())) < 1e-6 ? [ 1, 0, 0 ] : ut_back())
-                                                       : r0) ut_unit(r - tu * (r * tu));
+function ut_ref_fallback(t, ref = undef) =
+    let (
+        r0 = is_undef(ref) ? ut_up() : ref,
+        tu = ut_unit(t),
+        r = norm(cross(tu, r0)) < 1e-6 ? (norm(cross(tu, ut_back())) < 1e-6 ? [1, 0, 0] : ut_back())
+        : r0
+    ) ut_unit(r - tu * (r * tu));
 
 // Re-orthogonalise n against t, preserving n's direction as closely as possible.
-function ut_ortho(t, n) = let(tu = ut_unit(t), p = n - tu * (n * tu)) ut_unit(p);
+function ut_ortho(t, n) = let (tu = ut_unit(t), p = n - tu * (n * tu)) ut_unit(p);
 
 // OpenSCAD's own $fn/$fa/$fs rule, applied per-radius and scaled to a partial
 // sweep. This is why an arc-native IR gives better meshes than a sampled one:
 // each bend gets facets from ITS OWN radius.
-function ut_fragments(r, ang = 360) = let(full = $fn > 0 ? max($fn, 3) : ceil(max(min(360 / $fa, r * 2 * PI / $fs), 5)))
-    max(2, ceil(full *abs(ang) / 360));
+function ut_fragments(r, ang = 360) =
+    let (full = $fn > 0 ? max($fn, 3) : ceil(max(min(360 / $fa, r * 2 * PI / $fs), 5)))
+    max(2, ceil(full * abs(ang) / 360));
 
 // The inradius of the polyhedron OpenSCAD actually emits for sphere(r) -- the
 // distance to its nearest FACE, not to its vertices, which sit on r.
@@ -40,12 +44,12 @@ function ut_fragments(r, ang = 360) = let(full = $fn > 0 ? max($fn, 3) : ceil(ma
 // 9.9039, 9.9572 at n = 8, 12, 24, 32, 48 for r=10) and conservative below it
 // (6.545 modelled vs 7.330 actual at n=5). Erring low is the safe direction for
 // anything that has to fit inside the result.
-function ut_sphere_inradius(r) = let(n = ut_fragments(r, 360)) r * pow(cos(180 / n), 2);
+function ut_sphere_inradius(r) = let (n = ut_fragments(r, 360)) r * pow(cos(180 / n), 2);
 
 // A closed CCW polygon of n points on a circle of radius r, sampled by ANGLE.
 // Angle-sampling is what makes two loops correspondence-aligned (PROF-2 /
 // ADR 0006); sampling by arclength does not, and self-intersects the end caps.
-function ut_ring(r, n, a0 = 0) = [for (i = [0:n - 1]) let(a = a0 + 360 * i / n)[r * cos(a), r *sin(a)]];
+function ut_ring(r, n, a0 = 0) = [for (i = [0:n - 1]) let (a = a0 + 360 * i / n) [r * cos(a), r * sin(a)]];
 
 // The largest circle centred on the origin that fits inside a closed 2D loop.
 //
@@ -60,15 +64,15 @@ function ut_ring(r, n, a0 = 0) = [for (i = [0:n - 1]) let(a = a0 + 360 * i / n)[
 // perpendicular foot can fall outside the segment, so this UNDER-estimates --
 // which is the safe direction for anything that gets subtracted.
 function ut_inradius(loop) = min([for (i = [0:len(loop) - 1]) _ut_edge_dist(loop, i)]);
-function _ut_edge_dist(p, i) = let(a = p[i], b = p[(i + 1) % len(p)], d = b - a, L = norm(d)) L < ut_eps()
-                                   ? norm(a)
-                                   : abs(a[0] * d[1] - a[1] * d[0]) / L;
+function _ut_edge_dist(p, i) =
+    let (a = p[i], b = p[ (i + 1) % len(p)], d = b - a, L = norm(d)) L < ut_eps() ? norm(a)
+    : abs(a[0] * d[1] - a[1] * d[0]) / L;
 
 // Signed area of a 2D polygon. Positive = counter-clockwise.
-function ut_area2d(poly) = let(n = len(poly)) 0.5 * _ut_area_sum(poly, n, 0);
-function _ut_area_sum(p, n, i) = i >= n ? 0
-                                        : (p[i][0] * p[(i + 1) % n][1] - p[(i + 1) % n][0] * p[i][1]) +
-                                              _ut_area_sum(p, n, i + 1);
+function ut_area2d(poly) = let (n = len(poly)) 0.5 * _ut_area_sum(poly, n, 0);
+function _ut_area_sum(p, n, i) =
+    i >= n ? 0
+    : (p[i][0] * p[ (i + 1) % n][1] - p[ (i + 1) % n][0] * p[i][1]) + _ut_area_sum(p, n, i + 1);
 
 // Volume of a closed triangulated mesh by the divergence theorem.
 // Replaces BOSL2's vnf_volume(). Verified exact to 6 s.f. against analytic

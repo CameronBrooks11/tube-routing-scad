@@ -3,7 +3,7 @@
 // the junction: measured +178.9 mm3 (+3.6%) on this exact elbow, with
 // ut_check_net returning true and CGAL reporting "Simple: yes".
 use <../../src/uniTube.scad>;
-prof = ut_round(od = 12, id = 8);
-a = ut_run("a", ut_polyline([ [ 0, 0, 0 ], [ 40, 0, 0 ] ]), prof, group = 0);
-b = ut_run("b", ut_polyline([ [ 40, 0, 0 ], [ 40, 40, 0 ] ]), prof, group = 1);
-ut_assemble(ut_net([ a, b ], [ut_joint([ [ "a", "b" ], [ "b", "a" ] ])]));
+prof = ut_round(od=12, id=8);
+a = ut_run("a", ut_polyline([[0, 0, 0], [40, 0, 0]]), prof, group=0);
+b = ut_run("b", ut_polyline([[40, 0, 0], [40, 40, 0]]), prof, group=1);
+ut_assemble(ut_net([a, b], [ut_joint([["a", "b"], ["b", "a"]])]));

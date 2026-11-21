@@ -13,14 +13,13 @@ use <../src/uniTube.scad>;
 $fa = 8;
 $fs = 1;
 
-path = ut_polyline([ [ 0, 0, 0 ], [ 60, 0, 0 ], [ 60, 40, 0 ], [ 60, 40, 40 ] ], r = 18);
-prof = ut_round(id = 8, wall = 2);
+path = ut_polyline([[0, 0, 0], [60, 0, 0], [60, 40, 0], [60, 40, 40]], r=18);
+prof = ut_round(id=8, wall=2);
 ports = ut_run_ports(path, prof, "demo");
 
 // The example geometry, as a module so `just verify` can wrap it in a no-op
 // boolean to force CGAL. A raw polyhedron() is never validated otherwise.
-module part()
-{
+module part() {
     color("silver") ut_tube(path, prof);
     for (p = ports)
         ut_port_marker(p);

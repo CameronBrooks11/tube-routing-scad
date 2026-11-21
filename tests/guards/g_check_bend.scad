@@ -3,4 +3,4 @@
 // volume and zero warnings. Verified on this machine. Only arithmetic on the
 // spine catches it, which is why ut_check exists.
 use <../../src/uniTube.scad>;
-ut_tube(ut_polyline([ [ 0, 0, 0 ], [ 40, 0, 0 ], [ 40, 40, 0 ] ], r = 4), ut_round(od = 12, wall = 2));
+ut_tube(ut_polyline([[0, 0, 0], [40, 0, 0], [40, 40, 0]], r=4), ut_round(od=12, wall=2));
