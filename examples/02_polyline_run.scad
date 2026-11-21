@@ -12,24 +12,27 @@
 // exactly tangent -- the straight between them is zero-length and is omitted
 // rather than emitted as a degenerate segment.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;
 
 pts = [
-    [ 0, 0, 0 ], [ 100, 0, 0 ], [ 100, 100, 0 ], [ 50, 100, 100 ], [ 50, 100, 150 ], [ 0, 100, 50 ], [ 0, 0, 0 ],
-    [ 50, 0, 50 ]
+    [0, 0, 0],
+    [100, 0, 0],
+    [100, 100, 0],
+    [50, 100, 100],
+    [50, 100, 150],
+    [0, 100, 50],
+    [0, 0, 0],
+    [50, 0, 50],
 ];
-radii = [ 70, 30, 30, 6, 50, 30 ];
+radii = [70, 30, 30, 6, 50, 30];
 
 // The example geometry, as a module so `just verify` can wrap it in a no-op
 // boolean to force CGAL. A raw polyhedron() is never validated otherwise.
-module part()
-{
-    ut_tube(ut_polyline(pts, r = radii), ut_round(od = 10, id = 8));
+module part() {
+    ut_tube(ut_polyline(pts, r=radii), ut_round(od=10, id=8));
 }
 
 part();

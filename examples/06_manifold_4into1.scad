@@ -17,9 +17,7 @@
 // `Simple: yes` does NOT prove the lumens are open; the sealed version reports
 // exactly the same. checks/manifold/ asserts patency independently.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 8;
 $fs = 1;
@@ -28,21 +26,25 @@ BRANCH_OD = 12;
 BRANCH_ID = 8;
 TRUNK_OD = 16;
 TRUNK_ID = 12;
-N = 4;      // inlets
-RING = 50;  // how far out each inlet starts
+N = 4; // inlets
+RING = 50; // how far out each inlet starts
 DROP = -55; // and how far below
 
-module part()
-{
-    prof = ut_round(od = BRANCH_OD, id = BRANCH_ID);
-    branches = [for (i = [0:N - 1]) let(th = 360 * i / N) ut_run(
-        str("in", i),
-        ut_polyline([[RING * cos(th), RING * sin(th), DROP], [RING * cos(th), RING * sin(th), -25], [0, 0, 0]], r = 15),
-        prof)];
-    trunk = ut_run("out", ut_polyline([ [ 0, 0, 0 ], [ 0, 0, 55 ] ]), ut_round(od = TRUNK_OD, id = TRUNK_ID));
+module part() {
+    prof = ut_round(od=BRANCH_OD, id=BRANCH_ID);
+    branches = [
+        for (i = [0:N - 1]) let (th = 360 * i / N) ut_run(
+            str("in", i),
+            ut_polyline([[RING * cos(th), RING * sin(th), DROP], [RING * cos(th), RING * sin(th), -25], [0, 0, 0]], r=15),
+            prof
+        ),
+    ];
+    trunk = ut_run("out", ut_polyline([[0, 0, 0], [0, 0, 55]]), ut_round(od=TRUNK_OD, id=TRUNK_ID));
 
-    net = ut_net(concat(branches, [trunk]),
-                 [ut_joint(concat([for (i = [0:N - 1])[str("in", i), "b"]], [[ "out", "a" ]]), at = [ 0, 0, 0 ])]);
+    net = ut_net(
+        concat(branches, [trunk]),
+        [ut_joint(concat([for (i = [0:N - 1]) [str("in", i), "b"]], [["out", "a"]]), at=[0, 0, 0])]
+    );
 
     ut_assemble(net);
 }

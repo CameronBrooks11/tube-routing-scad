@@ -86,14 +86,6 @@ These cost real time in Phase 1. Each is a silent or misleading failure.
 - **`assert` messages are evaluated EAGERLY**, even when the condition passes.
   `assert(is_num(r) || ..., str("...", len(r)))` warns on a scalar `r` because
   the message runs regardless. Keep messages free of calls that can fail.
-- **clang-format destroys import lines** — `use <a/b.scad>` becomes
-  `use<a / b.scad>` and the resulting error names the wrong file. Always wrap the
-  import block in `// clang-format off` / `on`, and terminate each with `;`
-  (without the semicolon clang-format also mis-indents the whole file after it).
-  `just lint` rule 3 enforces the well-formed shape.
-- **clang-format splits long string literals**, producing `"a" "b"`, which is a C
-  idiom and a SYNTAX ERROR in OpenSCAD. `BreakStringLiterals: false` is set in
-  `.clang-format` for exactly this reason. Never turn it back on.
 - **`is_nan()` does not exist.** Use `is_num(x)` (false for nan, TRUE for inf) or
   `x == x` (false for nan only). The two distinguish the failure modes this
   library cares about: `acos` past 1.0 gives nan, `tan(90)` gives inf.
@@ -125,6 +117,10 @@ These cost real time in Phase 1. Each is a silent or misleading failure.
 - OpenSCAD **2021.01** is the version floor. No features newer than that.
 - `just check` is the CI equivalent. Run `just check && just test` before every
   commit.
+- `.scad` is formatted with topiary 0.8.0 at a 4-space indent
+  (`.topiary/languages.ncl`): `just fmt` formats, and `just fmt-check` is part of
+  `just check`. `reference/` is never formatted. `just lint` rule 3 keeps every
+  import as exactly `use <path>;`.
 - `docs/` is the documentation site's pages. `.github/workflows/docs.yml` builds
   the site with the just-the-docs-template-openscad engine, which `docs-site.yml`
   points at `docs/`; nothing for the site lives in this repo. Every page needs

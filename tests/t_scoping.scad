@@ -9,10 +9,8 @@
 // src/ sets no $fa, $fs or $fn anywhere, which is exactly why the library picks
 // up the consumer's resolution -- the behaviour asserted below is load-bearing.
 
-// clang-format off
 use <fixtures/scope_sets.scad>;
 use <fixtures/scope_silent.scad>;
-// clang-format on
 
 $fa = 30;
 $fs = 5;
@@ -32,8 +30,8 @@ assert(scope_sets_k() == 100, str("ordinary variables behave the same way; got "
 assert(scope_silent_fa() == 30, str("a function whose file is silent sees the caller's 30; got ", scope_silent_fa()));
 
 // 4. An explicit $-argument at the call site beats both.
-assert(scope_silent_fa($fa = 77) == 77, "an explicit $fa at the call site wins");
-assert(scope_sets_fa($fa = 77) == 77, "and it wins even over a file that sets its own");
+assert(scope_silent_fa($fa=77) == 77, "an explicit $fa at the call site wins");
+assert(scope_sets_fa($fa=77) == 77, "and it wins even over a file that sets its own");
 
 // The consequence for this repository: examples set $fa/$fs at their top level,
 // so `part()` renders at the authored resolution however it is invoked -- which

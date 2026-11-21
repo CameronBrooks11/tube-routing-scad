@@ -19,11 +19,9 @@
 // It exists and works (spikes/biarc_fitter.scad) and is deliberately not built:
 // Issue #17 has the measurements.
 
-// clang-format off
 use <../ut_core.scad>;
 use <../ut_math.scad>;
 use <../ut_path.scad>;
-// clang-format on
 
 // `f` is a function literal of one parameter. `dfdt`, when supplied, gives EXACT
 // tangents; otherwise they come from central differences.
@@ -35,19 +33,37 @@ use <../ut_path.scad>;
 // and dropping the 2*PI leaves a helix's tangent 6 degrees out at every sample --
 // measured, while looking perfectly plausible. When in doubt omit dfdt and let
 // central differences do it.
-function ut_curve(f, t = [ 0, 1 ], n = 100, dfdt = undef, frame = "transport", normal = undef,
-                  twist = 0) = assert(is_function(f),
-                                      "ut_curve(): f must be a function literal, e.g. function(t) [t, 0, 0]")
+function ut_curve(
+    f,
+    t = [0, 1],
+    n = 100,
+    dfdt = undef,
+    frame = "transport",
+    normal = undef,
+    twist = 0
+) =
+    assert(
+        is_function(f),
+        "ut_curve(): f must be a function literal, e.g. function(t) [t, 0, 0]"
+    )
     assert(n >= 2, str("ut_curve(): n must be at least 2, got ", n))
-        let(ts0 = [for (k = [0:n]) t[0] + (t[1] - t[0]) * k / n], ps0 = [for (tv = ts0) f(tv)],
-            // Dedupe returns INDICES, so the surviving samples keep their own
-            // parameter values. Mapping index -> t after the fact is wrong the
-            // moment a single sample is dropped.
-            keep = _ut_keep(ps0, 1, [0]), pts = [for (i = keep) ps0[i]],
-            ts = [for (i = keep) ts0[i]]) assert(len(pts) >= 2, "ut_curve(): every sample collapsed to one point")
-            ut_spine([ut_sampled(pts, is_undef(dfdt) ? _ut_central(pts) : [for (tv = ts) ut_unit(dfdt(tv))])], false,
-                     concat([ [ "frame", frame ], [ "twist", twist ] ],
-                            is_undef(normal) ? [] : [[ "normal", normal ]]));
+    let (
+        ts0 = [for (k = [0:n]) t[0] + (t[1] - t[0]) * k / n],
+        ps0 = [for (tv = ts0) f(tv)],
+        // Dedupe returns INDICES, so the surviving samples keep their own
+        // parameter values. Mapping index -> t after the fact is wrong the
+        // moment a single sample is dropped.
+        keep = _ut_keep(ps0, 1, [0]),
+        pts = [for (i = keep) ps0[i]],
+        ts = [for (i = keep) ts0[i]]
+    ) assert(len(pts) >= 2, "ut_curve(): every sample collapsed to one point")
+    ut_spine(
+        [ut_sampled(pts, is_undef(dfdt) ? _ut_central(pts) : [for (tv = ts) ut_unit(dfdt(tv))])], false,
+        concat(
+            [["frame", frame], ["twist", twist]],
+            is_undef(normal) ? [] : [["normal", normal]]
+        )
+    );
 
 // MANDATORY dedupe, returning the indices that survive. Two coincident
 // consecutive samples make the tangent [0,0,0], and normalising that is
@@ -55,10 +71,12 @@ function ut_curve(f, t = [ 0, 1 ], n = 100, dfdt = undef, frame = "transport", n
 // reference/gringer/path_extrude.scad:58, and it fires on the single most
 // obvious thing a user does: concatenating two path pieces that share an
 // endpoint. STATION-1 depends on it.
-function _ut_keep(p, i, acc) = i >= len(p)
-                                   ? acc
-                                   : _ut_keep(p, i + 1,
-                                              norm(p[i] - p[acc[len(acc) - 1]]) > ut_eps() ? concat(acc, [i]) : acc);
+function _ut_keep(p, i, acc) =
+    i >= len(p) ? acc
+    : _ut_keep(
+        p, i + 1,
+        norm(p[i] - p[acc[len(acc) - 1]]) > ut_eps() ? concat(acc, [i]) : acc
+    );
 
 // Central differences on the DEDUPED points, so a repeated sample cannot poison
 // a neighbour.
@@ -77,7 +95,12 @@ function _ut_keep(p, i, acc) = i >= len(p)
 //
 // The two-point estimate halves with n; this one quarters. Second order at both
 // ends and in the interior.
-function _ut_central(p) = let(m = len(p) - 1)[for (i = [0:m]) ut_unit(m < 2 ? (i == 0 ? p[1] - p[0] : p[m] - p[m - 1])
-                                                                      : i == 0 ? -3 * p[0] + 4 * p[1] - p[2]
-                                                                      : i == m ? 3 * p[m] - 4 * p[m - 1] + p[m - 2]
-                                                                               : p[i + 1] - p[i - 1])];
+function _ut_central(p) =
+    let (m = len(p) - 1) [
+            for (i = [0:m]) ut_unit(
+                m < 2 ? (i == 0 ? p[1] - p[0] : p[m] - p[m - 1])
+                : i == 0 ? -3 * p[0] + 4 * p[1] - p[2]
+                : i == m ? 3 * p[m] - 4 * p[m - 1] + p[m - 2]
+                : p[i + 1] - p[i - 1]
+            ),
+    ];

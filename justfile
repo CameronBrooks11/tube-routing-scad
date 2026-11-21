@@ -16,7 +16,7 @@ setup:
     #!/usr/bin/env bash
     set -euo pipefail
     ok=0
-    for t in openscad clang-format; do
+    for t in openscad topiary; do
       if command -v "$t" >/dev/null; then
         echo "  ok      $t  ($($t --version 2>&1 | head -1))"
       else
@@ -31,21 +31,13 @@ setup:
     echo "  OpenSCAD library path (~/.local/share/OpenSCAD/libraries/tube-routing-scad)."
     exit $ok
 
-# Format all first-party .scad sources in place. reference/ is never touched.
+# Format the first-party .scad sources with topiary (.topiary/languages.ncl). reference/ is never touched.
 fmt:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    mapfile -t files < <(find src examples tests -name '*.scad' 2>/dev/null | sort)
-    [ ${#files[@]} -eq 0 ] || clang-format -i "${files[@]}"
-    echo "formatted ${#files[@]} file(s)"
+    git ls-files -z '*.scad' ':!:reference/' | xargs -0 -r topiary format
 
-# Fail if any first-party source is not correctly formatted.
+# Check the first-party .scad sources are formatted, without changing them
 fmt-check:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    mapfile -t files < <(find src examples tests -name '*.scad' 2>/dev/null | sort)
-    [ ${#files[@]} -eq 0 ] || clang-format --dry-run -Werror "${files[@]}"
-    echo "fmt-check ok (${#files[@]} file(s))"
+    git ls-files -z '*.scad' ':!:reference/' | xargs -0 -r -n1 topiary format --check
 
 # The project's own rules, enforced. See AGENTS.md.
 lint:
@@ -69,14 +61,11 @@ lint:
       echo "LINT FAIL: top-level geometry or echo under src/ (library and demo must not share a file)"; fail=1
     fi
 
-    # LINT RULE 3 — import lines must be well-formed. clang-format rewrites
-    # `use <a/b.scad>` into `use<a / b.scad>` unless the block is wrapped in
-    # `// clang-format off` / `on`, and the resulting error names the wrong file.
+    # LINT RULE 3 — import lines must be well-formed: exactly `use <path>;`.
     if find src examples tests -name '*.scad' -print0 2>/dev/null \
          | xargs -0 -r grep -nE '^[[:space:]]*(use|include)[[:space:]]*<' \
          | grep -vE ':(use|include) <[^ >]+>;$' ; then
-      echo "LINT FAIL: malformed import line. Use exactly \`use <path>;\` inside a"
-      echo "           // clang-format off / on block. See AGENTS.md."; fail=1
+      echo "LINT FAIL: malformed import line. Use exactly \`use <path>;\`."; fail=1
     fi
 
     [ $fail -eq 0 ] && echo "lint ok"
@@ -280,6 +269,10 @@ render:
       openscad -o "{{OUT}}/render/$(basename "${f%.scad}").stl" "$f" 2>/dev/null
       echo "  {{OUT}}/render/$(basename "${f%.scad}").stl"
     done
+
+# Render the picture on the docs home page. Preview through OpenCSG, so it needs a GL context.
+images:
+    openscad -o docs/assets/img/examples/06_manifold_4into1.png --imgsize=1000,750 --viewall --autocenter examples/06_manifold_4into1.scad
 
 # Remove all build output.
 clean:

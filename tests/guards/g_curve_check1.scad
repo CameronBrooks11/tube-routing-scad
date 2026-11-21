@@ -8,13 +8,13 @@
 // frontend that was not covered.
 //
 // The discrete estimate recovers 11.014 against an analytic 11.0132.
-// clang-format off
 use <../../src/uniTube.scad>;
-// clang-format on
 $fa = 8;
 $fs = 1;
 R = 10;
 RISE = 20;
 T = 3;
-ut_tube(ut_curve(function(t)[R * cos(360 * T * t), R *sin(360 * T * t), RISE *T *t], n = 200),
-        ut_round(od = 24, wall = 3));
+ut_tube(
+    ut_curve(function(t) [R * cos(360 * T * t), R * sin(360 * T * t), RISE * T * t], n=200),
+    ut_round(od=24, wall=3)
+);

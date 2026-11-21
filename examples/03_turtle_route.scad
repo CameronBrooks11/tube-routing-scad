@@ -16,28 +16,27 @@
 // This is also literally how a CNC tube bender is programmed: Length, Rotation,
 // Angle.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;
 
-module part()
-{
-    route = ut_turtle([
-        [ "feed", 60 ],
-        [ "bend", 90, "r", 24 ],
-        [ "feed", 40 ],
-        [ "roll", 90 ], // no geometry -- but the next bend leaves the plane
-        [ "bend", 45, "r", 24 ],
-        [ "feed", 30 ],
-        [ "roll", -60 ],
-        [ "bend", 60, "r", 20 ],
-        [ "feed", 45 ],
-    ]);
+module part() {
+    route = ut_turtle(
+        [
+            ["feed", 60],
+            ["bend", 90, "r", 24],
+            ["feed", 40],
+            ["roll", 90], // no geometry -- but the next bend leaves the plane
+            ["bend", 45, "r", 24],
+            ["feed", 30],
+            ["roll", -60],
+            ["bend", 60, "r", 20],
+            ["feed", 45],
+        ]
+    );
 
-    ut_tube(route, ut_round(od = 12, wall = 2));
+    ut_tube(route, ut_round(od=12, wall=2));
 }
 
 part();

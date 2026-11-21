@@ -9,10 +9,8 @@
 // rotationally symmetric -- a split, a square bore, a keyway -- the orientation
 // of the cut face IS the roll. Nothing else is needed to see it.
 
-// clang-format off
 use <ut_core.scad>;
 use <ut_math.scad>;
-// clang-format on
 
 // Cut the half-space on the +normal side away from whatever is passed in.
 //
@@ -36,26 +34,20 @@ use <ut_math.scad>;
 // This went unseen while ut_sweep() wound its faces inside-out: two wrongs drew
 // something that passed for a section. render() costs a CGAL evaluation, which
 // is the right price for a view whose whole job is to show what is there.
-module ut_cutaway(normal = [ 0, 1, 0 ], at = 0, on = true, size = 1000)
-{
-    if (!on)
-    {
+module ut_cutaway(normal = [0, 1, 0], at = 0, on = true, size = 1000) {
+    if (!on) {
         children();
-    }
-    else
-    {
-        render(convexity = 10) difference()
-        {
-            children();
-            translate(ut_unit(normal) * at) _ut_halfspace(ut_unit(normal), size);
-        }
+    } else {
+        render(convexity=10) difference() {
+                children();
+                translate(ut_unit(normal) * at) _ut_halfspace(ut_unit(normal), size);
+            }
     }
 }
 
-module _ut_halfspace(n, size)
-{
+module _ut_halfspace(n, size) {
     u = ut_ref_fallback(n);
     v = cross(n, u);
-    multmatrix([[u [0], v [0], n [0], 0], [u [1], v [1], n [1], 0], [u [2], v [2], n [2], 0], [0, 0, 0, 1]])
-        translate([ -size / 2, -size / 2, 0 ]) cube(size);
+    multmatrix([[u[0], v[0], n[0], 0], [u[1], v[1], n[1], 0], [u[2], v[2], n[2], 0], [0, 0, 0, 1]])
+        translate([-size / 2, -size / 2, 0]) cube(size);
 }

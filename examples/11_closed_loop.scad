@@ -23,28 +23,26 @@
 // absorbed against the profile's rotational symmetry, and distributed by
 // arclength, so the seam meets itself exactly. Measured residual: 0 degrees.
 
-// clang-format off
 use <../src/uniTube.scad>;
-// clang-format on
 
 $fa = 6;
 $fs = 0.5;
 
 R = 60;
 
-module part()
-{
+module part() {
     // Four quarter arcs about the origin, tangent-continuous, closing on themselves.
     loop = ut_spine(
         [
-            ut_arc([ 0, 0, 0 ], [ 1, 0, 0 ], [ 0, 1, 0 ], R, 90),
-            ut_arc([ 0, 0, 0 ], [ 0, 1, 0 ], [ -1, 0, 0 ], R, 90),
-            ut_arc([ 0, 0, 0 ], [ -1, 0, 0 ], [ 0, -1, 0 ], R, 90),
-            ut_arc([ 0, 0, 0 ], [ 0, -1, 0 ], [ 1, 0, 0 ], R, 90),
+            ut_arc([0, 0, 0], [1, 0, 0], [0, 1, 0], R, 90),
+            ut_arc([0, 0, 0], [0, 1, 0], [-1, 0, 0], R, 90),
+            ut_arc([0, 0, 0], [-1, 0, 0], [0, -1, 0], R, 90),
+            ut_arc([0, 0, 0], [0, -1, 0], [1, 0, 0], R, 90),
         ],
-        closed = true);
+        closed=true
+    );
 
-    ut_tube(loop, ut_round(od = 14, wall = 2));
+    ut_tube(loop, ut_round(od=14, wall=2));
 }
 
 part();

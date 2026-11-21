@@ -8,12 +8,13 @@
 function ut_eps() = 1e-9;
 function ut_min_wall() = 1.2; // ~3 perimeters on a 0.4 nozzle; a warning, not an error
 
-function ut_up() = [ 0, 0, 1 ];
-function ut_back() = [ 0, 1, 0 ];
+function ut_up() = [0, 0, 1];
+function ut_back() = [0, 1, 0];
 
 // --- association lists: opts = [["key", value], ...] --------------------------
-function ut_opt(opts, key, dflt = undef) = let(hit = [for (e = opts) if (e[0] == key) e[1]]) len(hit) > 0 ? hit[0]
-                                                                                                          : dflt;
+function ut_opt(opts, key, dflt = undef) =
+    let (hit = [for (e = opts) if (e[0] == key) e[1]]) len(hit) > 0 ? hit[0]
+    : dflt;
 
 // --- tagged records -----------------------------------------------------------
 // Every record is ["tag", ...fields]. User code reads them through accessors,
